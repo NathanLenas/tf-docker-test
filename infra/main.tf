@@ -12,7 +12,7 @@ provider "docker" {
 }
 
 # Build the image
-resource "docker_image" "fastapi" {
+resource "docker_image" "build" {
   name = "fastapi:latest"
   build {
     context = "../app"
@@ -21,8 +21,8 @@ resource "docker_image" "fastapi" {
 }
 
 # Run the container
-resource "docker_container" "fastapi" {
-  image = docker_image.fastapi.image_id
+resource "docker_container" "run" {
+  image = docker_image.build.image_id
   name  = "fastapi"
   ports {
     internal = 8000
