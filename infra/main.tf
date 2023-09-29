@@ -13,7 +13,7 @@ provider "docker" {
 
 # Build the image
 resource "docker_image" "build" {
-  name = "fastapi:latest"
+  name = "build"
   build {
     context = "../app"
     tag     = ["fastapi:latest"]
